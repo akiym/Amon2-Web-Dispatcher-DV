@@ -26,7 +26,7 @@ sub import {
                 return $res;
             }
             my $res = $controller->{code}->($c, $args);
-            if (ref $res eq 'HASH') {
+            if (ref $res eq 'ARRAY' || ref $res eq 'HASH') {
                 return $c->render_json($res); # succeeded
             } else {
                 return $res; # succeeded
